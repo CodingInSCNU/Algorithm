@@ -12,6 +12,7 @@
 输出: "bb"
 ```
 [解法源网址](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/)  
+动态规划:  
 >基本思路：要判断 i 到 j 是否回文字符串只需判断 i+1 到 j-1是否回文即可。即 dp[i][j] = (dp[i+1][j-1] && s[i] == s[j]),范围就是当 i+1 到 j-1的距离小于2，那么肯定是回文串，(j-1)-(i+1)+1<2 ,得到 j-i<3, that's all.时间和空间都是O(n^2).
 ```c++
 string longestPalindrome(string s) {
