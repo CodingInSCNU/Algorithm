@@ -11,7 +11,7 @@
 输入: "cbbd"
 输出: "bb"
 ```
-动态规划:  
+## 动态规划:  
 >基本思路：要判断 i 到 j 是否回文字符串只需判断 i+1 到 j-1是否回文即可。即 dp[i][j] = (dp[i+1][j-1] && s[i] == s[j]),范围就是当 i+1 到 j-1的距离小于2，那么肯定是回文串，(j-1)-(i+1)+1<2 ,得到 j-i<3, that's all.时间和空间都是O(n^2).
 ```c++
 string longestPalindrome(string s) {
@@ -50,7 +50,7 @@ string longestPalindrome(string s) {
     return s.substr(start,maxLen);
 }
 ```
-中心扩散算法：  
+## 中心扩散算法：  
 
 中心扩散法的思路是：遍历每一个索引，以这个索引为中心，利用“回文串”中心对称的特点，往两边扩散，看最多能扩散多远。
 
