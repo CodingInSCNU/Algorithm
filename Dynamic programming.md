@@ -109,4 +109,4 @@ public:
     }
 };
 ```
-[解法源网址、其中还有Manacher 算法(有兴趣可以看一下)](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/)  
+[解法源网址、其中还有 Manacher算法(有兴趣可以看一下)](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/)  
