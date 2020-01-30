@@ -81,7 +81,7 @@ private:
                 break;
             }
         }
-        // 这里要小心，跳出 while 循环时，恰好满足 s.charAt(i) != s.charAt(j)，因此不能取 i，不能取 j
+        // 这里要小心，跳出 while 循环时，恰好满足 s[i] != s[j]，因此不能取 i，不能取 j
         return s.substr(i + 1, j - i - 1);
     }
 
