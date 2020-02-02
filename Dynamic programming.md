@@ -51,8 +51,8 @@ string longestPalindrome(string s) {
 }
 ```
 复杂度分析：  
-时间复杂度：O(n^2)
-空间复杂度：O(n^2)
+- 时间复杂度：O(n^2)  
+- 空间复杂度：O(n^2)
 ## 中心扩散算法：  
 
 中心扩散法的思路是：遍历每一个索引,以这个索引为中心,利用“回文串”中心对称的特点,往两边扩散,看最多能扩散多远.
@@ -113,6 +113,6 @@ public:
 };
 ```
 复杂度分析：  
-时间复杂度：O(n^2)
-空间复杂度：O(1)
+- 时间复杂度：O(n^2)  
+- 空间复杂度：O(1)
 [解法源网址、其中还有 Manacher算法(有兴趣可以看一下)](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/)  
