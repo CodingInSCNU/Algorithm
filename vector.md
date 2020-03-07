@@ -67,6 +67,7 @@ nums2 = [3, 4]
 
 则中位数是 (2 + 3)/2 = 2.5
 ```
+以下算法不符合题目要求，具体解法 [click here](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-shu-b/)
 ```c++
 class Solution {
 public:
