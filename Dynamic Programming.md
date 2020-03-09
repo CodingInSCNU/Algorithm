@@ -336,7 +336,7 @@ dp[i][j] 代表 word1 到 i 位置转换成 word2 到 j 位置需要最少步数
 其中,```dp[i-1][j-1]``` 表示替换操作,```dp[i-1][j]``` 表示删除操作,```dp[i][j-1]``` 表示插入操作。
 
 注意，针对第一行，第一列要单独考虑，我们引入 '' 下图所示：
-![picture](https://pic.leetcode-cn.com/76574ab7ff2877d63b80a2d4f8496fab3c441065552edc562f62d5809e75e97e-Snipaste_2019-05-29_15-28-02.png)
+![picture](https://pic.leetcode-cn.com/76574ab7ff2877d63b80a2d4f8496fab3c441065552edc562f62d5809e75e97e-Snipaste_2019-05-29_15-28-02.png)  
 第一行，是 ```word1``` 为空变成 ```word2``` 最少步数，就是插入操作
 
 第一列，是 ```word2``` 为空，需要的最少步数，就是删除操作
