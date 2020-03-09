@@ -11,7 +11,7 @@
 输入: "cbbd"
 输出: "bb"
 ```
-## 动态规划:  
+## Dynamic Programming  
 基本思路：要判断 i 到 j 是否回文字符串只需判断 i+1 到 j-1是否回文即可。即 ```dp[i][j] = (dp[i+1][j-1] && s[i] == s[j])```,范围就是当 ```i+1``` 到 ```j-1``` 的距离小于2，那么肯定是回文串，```(j-1)-(i+1)+1<2``` ,得到 ```j-i<3```, that's all.
 ```c++
 string longestPalindrome(string s) {
@@ -117,7 +117,7 @@ public:
 - 空间复杂度：O(1)  
 ## Manacher算法
 ### [有兴趣可以看一下，理解就好，不要求掌握](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/)
-
+---
 # 跳跃游戏
 给定一个非负整数数组，你最初位于数组的第一个位置。  
 
@@ -172,7 +172,7 @@ public:
 复杂度分析：
 - 时间复杂度：*O(2^n)*,最多有 2^n 种从第一个位置到最后一个位置的跳跃方式，其中 n 是数组 nums 的元素个数.  
 - 空间复杂度：*O(n)*,回溯法只需要栈的额外空间.  
-## 自顶向下的动态规划
+## 自顶向下的 Dynamic Programming
 思路：自顶向下的动态规划可以理解成回溯法的一种优化。我们发现当一个坐标已经被确定为好 / 坏之后，结果就不会改变了，这意味着我们可以记录这个结果，每次不用重新计算。  
 
 因此，对于数组中的每个位置，我们记录当前坐标是好 / 坏，记录在数组 ``memo`` 中，定义元素取值为 GOOD ，BAD，UNKNOWN。这种方法被称为记忆化。
@@ -228,7 +228,7 @@ public:
 复杂度分析：
 - 时间复杂度：*O(2^n)*,数组中的每个元素，假设为 ```i```，需要搜索右边相邻的 ```nums[i]``` 个元素查找是否有 GOOD 的坐标。 ```nums[i]``` 最多为 n, n 是 ```nums``` 数组的大小。  
 - 空间复杂度：*O(2n) = O(n)*,第一个 n 是栈空间的开销，第二个 n 是记忆表的开销。  
-## 自底向上的动态规划
+## 自底向上的 Dynamic Programming
 底向上和自顶向下动态规划的区别就是消除了回溯，在实际使用中，自底向下的方法有更好的时间效率因为我们不再需要栈空间，可以节省很多缓存开销。更重要的事，这可以让之后更有优化的空间。回溯通常是通过反转动态规划的步骤来实现的。  
 
 这是由于我们每次只会向右跳动，意味着如果我们从右边开始动态规划，每次查询右边节点的信息，都是已经计算过了的，不再需要额外的递归开销，因为我们每次在 ```memo``` 表中都可以找到结果。
@@ -295,14 +295,75 @@ public:
 复杂度分析：  
 - 时间复杂度：*O(n)*,只需要访问 ```nums``` 数组一遍，共 n 个位置，n 是 ```nums``` 数组的长度。  
 - 空间复杂度：*O(1)*,不需要额外的空间开销。  
+---
+# 编辑距离
+给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数 。
 
+你可以对一个单词进行如下三种操作：
 
+插入一个字符
+删除一个字符
+替换一个字符
+示例 1:
+```
+输入: word1 = "horse", word2 = "ros"
+输出: 3
+解释: 
+horse -> rorse (将 'h' 替换为 'r')
+rorse -> rose (删除 'r')
+rose -> ros (删除 'e')
+```
+示例 2:
+```
+输入: word1 = "intention", word2 = "execution"
+输出: 5
+解释: 
+intention -> inention (删除 't')
+inention -> enention (将 'i' 替换为 'e')
+enention -> exention (将 'n' 替换为 'x')
+exention -> exection (将 'n' 替换为 'c')
+exection -> execution (插入 'u')
+```
+## Dynamic Programming
+dp[i][j] 代表 word1 到 i 位置转换成 word2 到 j 位置需要最少步数
 
+所以，
 
+当 ```word1[i] == word2[j]```,```dp[i][j] = dp[i-1][j-1]```
 
+当 ```word1[i] != word2[j]```,```dp[i][j] = min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]) + 1```
 
+其中,```dp[i-1][j-1]``` 表示替换操作,```dp[i-1][j]``` 表示删除操作,```dp[i][j-1]``` 表示插入操作。
 
+注意，针对第一行，第一列要单独考虑，我们引入 '' 下图所示：
+![picture](https://pic.leetcode-cn.com/76574ab7ff2877d63b80a2d4f8496fab3c441065552edc562f62d5809e75e97e-Snipaste_2019-05-29_15-28-02.png)
+第一行，是 ```word1``` 为空变成 ```word2``` 最少步数，就是插入操作
 
+第一列，是 ```word2``` 为空，需要的最少步数，就是删除操作
+
+```c++
+int minDistance(string word1, string word2) {
+    // dp[i][j] 表示 word1 的前 i 个字母和 word2 的前 j 个字母之间的编辑距离。
+    unsigned long len1 = word1.length(), len2 = word2.length();
+    int dp[len1 + 1][len2 + 1];
+    for (int i = 0; i < len1 + 1; i++) {
+        dp[i][0] = i;
+    }
+    for (int j = 0; j < len2 + 1; j++) {
+        dp[0][j] = j;
+    }
+    for (int i = 1; i < len1 + 1; i++) {
+        for (int j = 1; j < len2 + 1; j++) {
+            if (word1[i - 1] == word2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {    //dp[i-1][j-1] 表示替换操作，dp[i-1][j] 表示删除操作，dp[i][j-1] 表示插入操作
+                dp[i][j] = fmin(dp[i - 1][j - 1], fmin(dp[i - 1][j], dp[i][j - 1])) + 1;
+            }
+        }
+    }
+    return dp[len1][len2];
+}
+```
 
 
 
