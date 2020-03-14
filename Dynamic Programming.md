@@ -579,6 +579,9 @@ int lengthOfLIS(vector<int>& nums) {
     return res;
 }
 ```
+复杂度分析：
+- 时间复杂度：O(nlogn)。数组 ```nums``` 的长度为 n，我们依次用数组中的元素去更新 ```tails``` 数组，而更新 ```tails``` 数组时需要进行 O(logn) 的二分搜索，所以总时间复杂度为 O(nlogn)。
+- 空间复杂度：O(n)，需要额外使用长度为 ```n``` 的 ```tails``` 数组。
 
 
 
