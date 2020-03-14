@@ -440,38 +440,35 @@ p = "mis*is*p*."
 
 ```c++
 bool isMatch(string s, string p) {
-        if (s == "" && p == "") {
-            return true;
-        }
-        unsigned long m = s.length(), n = p.length();
-        bool dp[m + 1][n + 1];
-        memset(dp, false, sizeof(dp));
-        dp[0][0] = true;
-        for (int j = 1; j <= n; j++) {
-            if ((p[j - 1] == '*') && dp[0][j - 2]) {
-                dp[0][j] = true;
-            }
-        }
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                if (s[i - 1] == p[j - 1] || p[j - 1] == '.') {
-                    dp[i][j] = dp[i - 1][j - 1];
-                }
-                else
-                    if (p[j - 1] == '*') {
-                        if (j - 2 >= 0) {
-                            if (p[j - 2] == s[i - 1] || p[j - 2] == '.') {
-                                //匹配单个或者多个的情况
-                                dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
-                            }
-                            //若上式能满足就为 true，若上式不满足就看匹配 0 个的情况了
-                            dp[i][j] = dp[i][j - 2] || dp[i][j];
-                        }
-                    }
-            }
-        }
-        return dp[m][n];
+    if (s == "" && p == "") {
+        return true;
     }
+    unsigned long m = s.length(), n = p.length();
+    bool dp[m + 1][n + 1];
+    memset(dp, false, sizeof(dp));
+    dp[0][0] = true;
+    for (int j = 1; j <= n; j++) {
+        if ((p[j - 1] == '*') && dp[0][j - 2]) {
+            dp[0][j] = true;
+        }
+    }
+    for (int i = 1; i <= m; i++) {
+        for (int j = 1; j <= n; j++) {
+            if (s[i - 1] == p[j - 1] || p[j - 1] == '.') {
+                dp[i][j] = dp[i - 1][j - 1];
+            }
+            else
+                if (p[j - 1] == '*') {
+                    if (p[j - 2] == s[i - 1] || p[j - 2] == '.') {  //三者满足其一即可
+                        dp[i][j] = dp[i - 1][j] || dp[i][j - 1] || dp[i][j-2];
+                    }
+                    else
+                        dp[i][j] = dp[i][j-2];  //p[j - 2] != s[i - 1]
+                }
+         }
+    }
+    return dp[m][n];
+}
 ```
 
 
