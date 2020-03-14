@@ -43,7 +43,7 @@ a.rbegin();                             //rbegin函数返回指向当前vector�
 
 a.rend();                               //rend()函数返回指向当前vector起始位置的逆迭代器
 
-a.resize(size, val);                     //改变当前vector的大小为size,且对新创建的元素赋值val
+a.resize(size, val);                    //改变当前vector的大小为size,且对新创建的元素赋值val
 ```
 ---
 # 合并两个数组
