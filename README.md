@@ -1,1 +1,1 @@
-[Markdown数学符号](https://www.jianshu.com/p/86d4e3502e46)
+[Markdown数学符号](https://zhenkai.blog.csdn.net/article/details/88621318)
