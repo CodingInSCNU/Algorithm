@@ -473,6 +473,7 @@ bool isMatch(string s, string p) {
     return dp[m][n];
 }
 ```
+#### 还有[类似的更简单的题目](https://leetcode-cn.com/problems/wildcard-matching/)
 ---
 # 最长上升子序列
 给定一个无序的整数数组，找到其中最长上升子序列的长度。  
