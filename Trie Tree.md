@@ -18,7 +18,7 @@ struct Node{
 # Insertion
 step1：初始化
 
-Trie树为空，只包含一个孤零零的根结点
+Trie树为空，只包含一个孤零零的根结点  
 ![p1](https://images2018.cnblogs.com/blog/979924/201808/979924-20180809160016864-1312171223.png)
 
 
