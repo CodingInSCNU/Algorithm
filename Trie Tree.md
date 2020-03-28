@@ -6,11 +6,12 @@ Trie tree 通常分为三种操作：插入、查找、删除，删除通常是�
 # 声明
 每个节点有26个孩子节点(对应26个字母)
 ```c
-struct Node{
-    Node *next[26];
+struct Node {
+    Node* next[26];
     Node() {
-        for(int i = 0; i < 26; i++)
+        for (int i = 0; i < 26; i++) {
             next[i] = NULL;
+        }
     }
 };
 ```
