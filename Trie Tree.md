@@ -9,9 +9,7 @@ Trie tree 通常分为三种操作：插入、查找、删除，删除通常是�
 struct Node {
     Node* next[26];
     Node() {
-        for (int i = 0; i < 26; i++) {
-            next[i] = NULL;
-        }
+        memset(next, NULL, sizeof(next));
     }
 };
 ```
