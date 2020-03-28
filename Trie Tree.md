@@ -171,20 +171,20 @@ Input consists of up to 100,000 dictionary entries, followed by a blank line, fo
 Output is the message translated to English, one word per line. Foreign words not in the dictionary should be translated as "eh".
 ## Sample Input
 
-dog ogday
-cat atcay
-pig igpay
-froot ootfray
-loops oopslay
+dog ogday  
+cat atcay  
+pig igpay  
+froot ootfray  
+loops oopslay  
 
-atcay
-ittenkay
-oopslay
+atcay  
+ittenkay  
+oopslay  
 ## Sample Output
 
-cat
-eh
-loops
+cat  
+eh  
+loops  
 ## Hint
 
 Huge input and output,scanf and printf are recommended.
