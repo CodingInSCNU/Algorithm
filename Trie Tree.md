@@ -160,7 +160,7 @@ int SearchTrie(char *str){
     return 1;
 }
 ```
-# Babelfish
+# Babelfish(前缀树)
 ## Description
 
 You have just moved from Waterloo to a big city. The people here speak an incomprehensible dialect of a foreign language.   Fortunately, you have a dictionary to help you understand them.  
@@ -252,8 +252,9 @@ int main(){
     }
     return 0;
 }
-
-```
+``` 
+---
+# 单词的压缩编码(后缀树)
 
 
 
