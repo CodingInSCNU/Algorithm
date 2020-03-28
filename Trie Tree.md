@@ -1,6 +1,6 @@
 # Definition 
 >又称单词查找树，Trie树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。它的优点是：利用字符串的公共前缀来减少查询时间，最大限度地减少无谓的字符串比较，查询效率比哈希树高。  
-[百度百科 Trie Tree](https://baike.baidu.com/item/字典树/9825209?fr=aladdin)  
+[Trie Tree](https://baike.baidu.com/item/字典树/9825209?fr=aladdin)  
 Trie tree 通常分为三种操作：插入、查找、删除，删除通常是删除整一棵树，以下就不做叙述了。  
 
 # 声明
@@ -159,8 +159,100 @@ int SearchTrie(char *str){
     return 1;
 }
 ```
+# Babelfish
+## Description
 
+You have just moved from Waterloo to a big city. The people here speak an incomprehensible dialect of a foreign language.   Fortunately, you have a dictionary to help you understand them.  
+## Input
 
+Input consists of up to 100,000 dictionary entries, followed by a blank line, followed by a message of up to 100,000 words. Each dictionary entry is a line containing an English word, followed by a space and a foreign language word. No foreign word appears more than once in the dictionary. The message is a sequence of words in the foreign language, one word on each line. Each word in the input is a sequence of at most 10 lowercase letters.
+## Output
+
+Output is the message translated to English, one word per line. Foreign words not in the dictionary should be translated as "eh".
+## Sample Input
+
+dog ogday
+cat atcay
+pig igpay
+froot ootfray
+loops oopslay
+
+atcay
+ittenkay
+oopslay
+## Sample Output
+
+cat
+eh
+loops
+## Hint
+
+Huge input and output,scanf and printf are recommended.
+
+按照上述操作将每一个陌生单词插入到字典树中，然后每个标记为红色的节点中存储英语单词的值，以便完成查找
+```c
+#include<stdio.h>
+#include<string.h>
+
+struct Node {
+    char English[15];
+    Node *next[26];
+    Node() {
+        for(int i = 0; i < 26; i++)
+            next[i] = NULL;
+    }
+};
+
+Node *root;
+void Insert(char *English, char *new_words){
+    Node *loc = root, *temp;
+    for(int i = 0; new_words[i] != '\0'; i++){
+        int id = new_words[i] - 'a';
+        if(loc->next[id] != NULL){
+            loc = loc->next[id];
+        } else {
+            temp = new Node;
+            loc->next[id] = temp;
+            loc = loc->next[id];
+        }
+    }
+    strcpy(loc->English, English);
+}
+
+int SearchTrie(char *new_words, char *English){
+    Node *loc = root;
+    for(int i = 0; new_words[i] != '\0'; i++){
+        int id = new_words[i] - 'a';
+        if (loc->next[id] != NULL)
+            loc = loc->next[id];
+        else
+            return 0;
+    }
+    strcpy(English, loc->English);
+    return 1;
+}
+
+int main(){
+    void Insert(char *English, char *new_words);
+    int SearchTrie(char *new_words, char *English);
+    root = new Node;
+    char English[15],new_words[15];
+    char buff[40];
+    while(gets(buff) && strcmp(buff, "") != 0) {
+        sscanf(buff, "%[^ ]%[^\n]", English, new_words);
+        Insert(English, new_words);
+    }
+    while(gets(new_words)){
+        int flag = SearchTrie(new_words, English);
+        if(flag)
+            printf("%s\n", English);
+        else
+            printf("eh\n");
+    }
+    return 0;
+}
+
+```
 
 
 
