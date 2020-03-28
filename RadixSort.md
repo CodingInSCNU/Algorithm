@@ -1,3 +1,5 @@
+![p](https://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=夕阳&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=2447108402,1730665111&os=2307787323,530993695&simid=3329208247,14054435&pn=6&rn=1&di=216260&ln=1791&fr=&fmq=1585394048595_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&hs=2&objurl=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1310%2F16%2Fc17%2F27588434_1381934858865_mthumb.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined)
+- 基数排序也可以称为多关键字排序，同计数排序类似，也是一种非比较性质的排序算法。将待排序集合中的每个元素拆分为多个总容量空间较小的对象，对每个对象执行桶排序后，则完成排序过程。  
 - 基数排序也可以称为多关键字排序，同计数排序类似，也是一种非比较性质的排序算法。将待排序集合中的每个元素拆分为多个总容量空间较小的对象，对每个对象执行桶排序后，则完成排序过程。  
 
 - 基数排序在桶排序的基础上做了优化，桶排序需要选择适当的映射规则，来完成集合中元素到多个桶的映射，也可以称之为值域划分。但是当集合中元素跨度很大时，映射规则的设计比较困难，若规则设计的宽泛一些，则桶的个数较少，随便避免了许多空桶的情况，但是可能会存在元素分布不均，桶排序则演变为普通的比较性质排序；若规则设计的较为精确，则桶的个数较多，可能会存在大部分桶都是空桶的情况，存在较大空间浪费。 
@@ -41,7 +43,7 @@
 |8||	
 |9|1359, 9|
 
-###step 3:
+### step 3:
 
 将桶中所有元素移动回原始序列后，序列为：```[30, 0, 2, 1086, 76, 36, 187, 777, 1359, 9]```  
 
