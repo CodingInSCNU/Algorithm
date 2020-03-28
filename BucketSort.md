@@ -1,4 +1,4 @@
-![p](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1730030524,2321416850&fm=26&gp=0.jpg)
+![p](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585404351865&di=f4b62d5273dd00307928644e9e6dddf8&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fb%2F55ffcac32ae36.jpg)
 # 基本思想（分治思想）：
 桶排序假设待排序的一组数均匀独立的分布在一个范围中，并将这一范围划分成几个子范围（桶）。
 
