@@ -1,3 +1,4 @@
+# Take r numbers from n numbers
 ```c++
 #include <iostream>
 #include <vector>
