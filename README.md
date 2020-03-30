@@ -57,11 +57,20 @@ branch: master
 
 ![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%881.43.42.png)
 
-这个时候只需要将自己的仓库名输到浏览器里面就能看到自己的blog了，至于博客页面的主题风格就看自己喜爱了(我也不会hh)
+这个时候只需要将自己的仓库名输到浏览器里面就能看到自己的blog了，至于博客页面的主题风格就看自己喜爱了
 
+# 更换主题
+首先我们去到主题下载的GitHub仓库中去，会有克隆的命令给你的，输入然后克隆就好
 
+![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%889.19.06.png)
 
+然后用 ```vim``` 修改 ```_config.yml``` 文件，在最底下，修改主题 ```theme``` 为自己克隆好的主题(人家的GitHub仓库下也会给你)
 
+![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%889.24.00.png)
+
+然后输入一系列命令：```hexo clean```, ```hexo g```, ```hexo s```, ```hexo d```, 就搞定了。
+
+![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%889.30.33.png)
 
 
 
