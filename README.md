@@ -16,7 +16,7 @@
 
 ![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8A%E5%8D%8811.32.24.png)
 
-然后输入命令：```hexo s``` 来创建自己的博客，然后在本地的网址(http://localhost:4000)可以看见，博客已经创建好了。
+然后输入命令：```hexo s``` 来创建自己的博客，然后在本地的网址(localhost:4000)可以看见，博客已经创建好了。
 
 ![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8A%E5%8D%8811.39.19.png)
 
