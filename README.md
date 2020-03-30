@@ -32,6 +32,22 @@
 
 ![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%8812.17.38.png)
 
+# 个人博客与GitHub关联
+
+首先创建一个GitHub仓库，仓库名字命名必须为：XX(你的名称).github.io，(由于我创建过了，所以名字重复了，一定要注意与前面那个用户名一样)
+
+![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%881.23.41.png)
+
+然后我们要在根目录下安装一个插件，输入命令：```cnpm install --save hexo-deployer-git```
+
+安装好之后我们
+
+
+
+
+
+
+
 
 
 
