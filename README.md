@@ -22,7 +22,13 @@
 
 然后我们来写文章了，输入命令：```hexo n "BucketSort"``` (名字就自己安排啦)，创建好文件后就进入到文件所在的路径下，用 ```vim``` 编辑它
 
+![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%8812.13.29.png)
 
+然后我们回到上两级(根目录)下，使用命令：```hexo clean``` 来清除缓存，然后用：```hexo g``` 来生成
+
+![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%8812.17.38.png)
+
+然后我们在用命令：```hexo s``` 来重新启动自己的博客
 
 
 
