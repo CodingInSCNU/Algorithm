@@ -20,7 +20,9 @@
 
 ![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8A%E5%8D%8811.39.19.png)
 
-然后我们来写文章了，输入命令：```hexo n "BucketSort"```
+然后我们来写文章了，输入命令：```hexo n "BucketSort"``` (名字就自己安排啦)，创建好文件后就进入到文件所在的路径下，用 ```vim``` 编辑它
+
+
 
 
 
