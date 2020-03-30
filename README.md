@@ -1,5 +1,5 @@
 # 搭建个人博客
-首先安装好```node```，网站是 [Node.js](nodejs.org)，选择 ```LTS``` 的。
+首先安装好```node```，网站是 [Node.js](nodejs.org)，选择 ```LTS``` 的下载。
 
 ![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/截屏2020-03-30上午10.29.35.png)
 
