@@ -28,7 +28,9 @@
 
 ![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%8812.17.38.png)
 
-然后我们在用命令：```hexo s``` 来重新启动自己的博客
+然后我们在用命令：```hexo s``` 来重新启动自己的博客，然后在本地的网址(localhost:4000)可以看见，博客已经更新好了。
+
+![p](https://github.com/Coding-in-SCNU/Upload_Picture/blob/master/%E6%88%AA%E5%B1%8F2020-03-30%E4%B8%8B%E5%8D%8812.17.38.png)
 
 
 
