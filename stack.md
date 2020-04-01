@@ -9,7 +9,8 @@
 - ```A``` 或 ```B``` 中的元素在原字符串中可以不连续。  
 - ```A.length + B.length = seq.length```  
 - ```max(depth(A), depth(B))``` 的可能取值最小。  
-- 划分方案用一个长度为 ```seq.length``` 的答案数组 ```answer``` 表示，编码规则如下：
+
+划分方案用一个长度为 ```seq.length``` 的答案数组 ```answer``` 表示，编码规则如下：  
 
 - ```answer[i] = 0```，```seq[i]``` 分给 ```A``` 。  
 - ```answer[i] = 1```，```seq[i]``` 分给 ```B``` 。
