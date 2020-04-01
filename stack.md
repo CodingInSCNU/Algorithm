@@ -45,10 +45,10 @@
 输入：seq = "()(())()"
 输出：[0,0,0,1,1,0,1,1]
 ```
-对应的 ```answer``` 的图示：
-![p](https://pic.leetcode-cn.com/fd04742c31901af648fb9cac4771836a5d9567a7ef6ddafd8a519cc02e5ea361-image.png)  
-题面也说了 ```answer``` 的答案是不唯一的，下面这样也是可以的：
-![p](https://pic.leetcode-cn.com/1675fd60b68a835009fbdc509d86ecb2045de7b48a4510a3864e93571547ec2e-image.png)
+对应的 ```answer``` 的图示：  
+![p](https://pic.leetcode-cn.com/fd04742c31901af648fb9cac4771836a5d9567a7ef6ddafd8a519cc02e5ea361-image.png)   
+题面也说了 ```answer``` 的答案是不唯一的，下面这样也是可以的：  
+![p](https://pic.leetcode-cn.com/1675fd60b68a835009fbdc509d86ecb2045de7b48a4510a3864e93571547ec2e-image.png)  
 
 下面说做法：
 
