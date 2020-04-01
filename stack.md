@@ -73,6 +73,7 @@ vector<int> maxDepthAfterSplit(string seq) {
             ans.push_back(d % 2);
             --d;
         }
+    }
     return ans;
 }
 ```
