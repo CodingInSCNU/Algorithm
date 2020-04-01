@@ -58,6 +58,25 @@
 
 只要在遍历过程中，我们保证栈内一半的括号属于序列 ```A```，一半的括号属于序列 ```B```，那么就能保证拆分后最大的嵌套深度最小，是当前最大嵌套深度的一半。要实现这样的对半分配，我们只需要把奇数层的 ```(``` 分配给 ```A```，偶数层的 ```(``` 分配给 ```B``` 即可。对于上面的例子，我们将嵌套深度为 1 和 3 的所有括号 ```(())``` 分配给 ```A```，嵌套深度为 2 的所有括号 ```()()()``` 分配给 ```B```。  
 
+以下两个解答都一样。  
+
+```c++
+vector<int> maxDepthAfterSplit(string seq) {
+    int d = 0;
+    vector<int> ans;
+    for (char& c : seq)
+        if (c == '(') {
+            ++d;
+            ans.push_back(d % 2);
+        }
+        else {
+            ans.push_back(d % 2);
+            --d;
+        }
+    return ans;
+}
+```
+
 ```c++
 vector<int> maxDepthAfterSplit(string seq) {
     vector<int> answer(seq.length());
