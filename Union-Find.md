@@ -38,50 +38,59 @@
 ![loading](https://upload-images.jianshu.io/upload_images/17401788-f5d4ce99dc050656.png?imageMogr2/auto-orient/strip|imageView2/2/w/374)  
 
 # 并查集的实现
-
-下面是并查集的实现的例子。在例子中，用编号代表每个元素，数组par表示的是父亲的编号，```par[x] = x``` 时，```x``` 是所在的树的根  
+## 初始化
 ```c++
-int par[MAX_N];//父亲
-int rank[MAX_N];//树的高度
-
-//初始化n个元素
-void init(int n) {
-    for(int i = 0; i < n; i++) {
-        par[i] = i;
-        rank[i] = 0;
+int fa[MAXN];
+void init(int n)
+{
+    for (int i = 1; i <= n; ++i)
+    {
+        fa[i] = i;
+        rank[i] = 1;
     }
-} 
+}
+```
+假如有编号为1, 2, 3, ..., n的n个元素，我们用一个数组fa[]来存储每个元素的父节点（因为每个元素有且只有一个父节点，所以这是可行的）。一开始，我们先将它们的父节点设为自己。  
 
-//查询树的根
-int find(int x) {
-    if (par[x] == x)
+## 查询
+```c++
+//普通查找
+int find(int x)
+{
+    if(fa[x] == x)
         return x;
     else
-        return find(par[x]);
-} 
+        return find(fa[x]);
+}
 
-//合并x和y所属的集合
-void unite(int x,int y) {
-    x = find(x);
-    y = find(y);
-    if (x == y)
-        return;
-    if (rank[x] < rank[y]) {
-        par[x] = y;
-    } else {
-        par[y] = x;
-        if(rank[x] == rank[y])
-            rank[x]++;  
+//路径压缩
+int find(int x)
+{
+    if(x == fa[x])
+        return x;
+    else{
+        fa[x] = find(fa[x]);  //父节点设为根节点
+        return fa[x];         //返回父节点
     }
-} 
+}
+```
+我们用递归的写法实现对代表元素的查询：一层一层访问父节点，直至根节点（根节点的标志就是父节点是本身）。要判断两个元素是否属于同一个集合，只需要看它们的根节点是否相同即可。  
 
-//判断x和y是否属于同一个集合
-bool same(int x,int y) {
-    return find(x) == find(y);
-} 
+## 合并
+```c++
+void merge(int i, int j)
+{
+    int x = find(i), y = find(j);    //先找到两个根节点
+    if (rank[x] <= rank[y])
+        fa[x] = y;
+    else
+        fa[y] = x;
+    if (rank[x] == rank[y] && x!=y)
+        rank[y]++;                   //如果深度相同且根节点不同，则新的根节点的深度+1
+}
 ```
 
-
+合并操作也是很简单的，先找到两个集合的代表元素，然后将前者的父节点设为后者即可。当然也可以将后者的父节点设为前者，这里暂时不重要。本文末尾会给出一个更合理的比较方法。  
 
 
 
