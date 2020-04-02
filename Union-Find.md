@@ -57,7 +57,7 @@ int find(int x) {
     if (par[x] == x)
         return x;
     else
-        return par[x] = find(par[x]);
+        return find(par[x]);
 } 
 
 //合并x和y所属的集合
