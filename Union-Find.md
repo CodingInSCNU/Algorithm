@@ -21,11 +21,65 @@
 
 ## (3) 查询
 为了查询两个节点是否属于同一组，我们需要沿着树向上走，来查询包含这个元素的树的根是谁。如果两个节点走到了同一个根，那么就可以知道他们属于同一组。
-在下图，2 和 5 都走到了 1 ，因此他们为同一组。另一方面，由于 7 走到的是 6 ，因此与 2 和 5 属于不同组  
+在下图，2 和 5 都走到了 1 ，因此他们为同一组。另一方面，由于 7 走到的是 6 ，因此与 2 和 5 属于不同组.  
 ![laoding](https://upload-images.jianshu.io/upload_images/17401788-ee51d8867624b915.png?imageMogr2/auto-orient/strip|imageView2/2/w/365)  
 
+# 并查集实现中的注意点
+在树形数据结构中，如果发生了退化的情况，那么复杂度就会变得很高。因此有必要避免退化.  
 
+- 对于每棵树，记录这棵树的高度（rank）  
+- 合并时如果两个数的rank不同，那么从rank小的向rank大的连边。  
+![loading](https://upload-images.jianshu.io/upload_images/17401788-62eff46e3405a952.png?imageMogr2/auto-orient/strip|imageView2/2/w/390)  
 
+此外，通过路径压缩，可以使得并查集更加高效。对于每个节点，一旦向上走到了一次根节点，就把这个点到父亲的边改为直接连向根。  
+![loading](https://upload-images.jianshu.io/upload_images/17401788-63e252b622f7f32d.png?imageMogr2/auto-orient/strip|imageView2/2/w/376)
+
+在此之上，不仅仅是所查询的节点，在查询过程中向上经过的所有节点，都改为直接连到根上。这样再次查询这些节点时，就可以很快知道根是谁了。  
+![loading](https://upload-images.jianshu.io/upload_images/17401788-f5d4ce99dc050656.png?imageMogr2/auto-orient/strip|imageView2/2/w/374)  
+
+# 并查集的实现
+
+下面是并查集的实现的例子。在例子中，用编号代表每个元素，数组par表示的是父亲的编号，```par[x] = x``` 时，```x``` 是所在的树的根  
+```c++
+int par[MAX_N];//父亲
+int rank[MAX_N];//树的高度
+
+//初始化n个元素
+void init(int n) {
+    for(int i = 0; i < n; i++) {
+        par[i] = i;
+        rank[i] = 0;
+    }
+} 
+
+//查询树的根
+int find(int x) {
+    if (par[x] == x)
+        return x;
+    else
+        return par[x] = find(par[x]);
+} 
+
+//合并x和y所属的集合
+void unite(int x,int y) {
+    x = find(x);
+    y = find(y);
+    if (x == y)
+        return;
+    if (rank[x] < rank[y]) {
+        par[x] = y;
+    } else {
+        par[y] = x;
+        if(rank[x] == rank[y])
+            rank[x]++;  
+    }
+} 
+
+//判断x和y是否属于同一个集合
+bool same(int x,int y) {
+    return find(x) == find(y);
+} 
+```
 
 
 
