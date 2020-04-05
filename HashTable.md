@@ -184,6 +184,8 @@ public:
 
 那么剩下的就是删除操作了，由于我们实时维护了 ```minFreq```，所以我们能够知道 ```freq_table``` 里目前最少使用频率的索引，同时因为我们保证了链表中从链表头到链表尾的插入时间是有序的，所以 ```freq_table[minFreq]``` 的链表中链表尾的节点即为使用频率最小且插入时间最早的节点，我们删除它同时根据情况更新 ```minFreq``` ，整个时间复杂度均为 ```O(1)```.  
 
+这种解法真的比较抽象，可以看一下 [动图演示](https://leetcode-cn.com/problems/lfu-cache/solution/lfuhuan-cun-by-leetcode-solution/)，这样可能会感觉好一点，如果还是不理解，要结合代码、注解和时间来消磨。  
+
 ```c++
 // 缓存的节点信息
 struct Node {
