@@ -122,7 +122,10 @@ vector<vector<int>> permute(vector<int>& nums) {
 ]
 ```
 ## 方法一：转置加翻转
-思路：先将矩阵转置，再反转每一行.
+思路：先将矩阵转置，再反转每一行.  
+
+由于矩阵中的行列从 ```0``` 开始计数，因此对于矩阵中的元素 ```matrix[row][col]```，在旋转后，它的新位置为 ```matrix[col][n−row−1]```。  
+
 ```c++
 class Solution {
 public:
