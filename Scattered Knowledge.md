@@ -123,9 +123,6 @@ vector<vector<int>> permute(vector<int>& nums) {
 ```
 ## 方法一：转置加翻转
 思路：先将矩阵转置，再反转每一行.  
-
-由于矩阵中的行列从 ```0``` 开始计数，因此对于矩阵中的元素 ```matrix[row][col]```，在旋转后，它的新位置为 ```matrix[col][n−row−1]```。  
-
 ```c++
 class Solution {
 public:
@@ -208,6 +205,36 @@ class Solution {
       }
     }
   }
+}
+```
+## 数学公式
+### 顺时针：```matrix[i][j] -> matrix[j][n_size - i - 1]```
+```c++
+void rotate(vector<vector<int>>& matrix) {
+    int n = matrix.size();
+    // C++ 这里的 = 拷贝是值拷贝，会得到一个新的数组
+    auto matrix_new = matrix;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            matrix_new[j][n - i - 1] = matrix[i][j];
+        }
+    }
+    // 这里也是值拷贝
+    matrix = matrix_new;
+}
+```
+
+### 逆时针：```matrix[i][j] -> matrix[n_size - j - 1][i]```
+```c++
+void anticlockwise(vector<vector<int>>& matrix) {
+    unsigned long n_size = matrix.size();
+    auto temp = matrix;
+    for (int i = 0; i < n_size; i++) {
+        for (int j = 0; j < n_size; j++) {
+            temp[n_size - j - 1][i] = matrix[i][j];
+        }
+    }
+    matrix = temp;
 }
 ```
 ---
