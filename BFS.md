@@ -108,8 +108,9 @@ int movingCount(int m, int n, int k) {
     return ans;
 }
 ```
-
-
+复杂度分析
+- 时间复杂度：```O(mn)```.  
+- 空间复杂度：```O(mn)```.  
 
 
 
