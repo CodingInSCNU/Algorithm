@@ -112,7 +112,8 @@ int movingCount(int m, int n, int k) {
 - 时间复杂度：```O(mn)```.  
 - 空间复杂度：```O(mn)```.  
 
-
+# Knight Moves
+这题就是普通的BFS，就不做题解了，具体代码在本人的 ```xcode``` 里hh，此处附上链接 [ZOJ-1091 Knight Moves](https://zoj.pintia.cn/problem-sets/91827364500/problems/91827364590)  
 
 
 
