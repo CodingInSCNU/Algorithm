@@ -123,24 +123,28 @@ Input Specification
 The input file will contain one or more test cases. Each test case consists of one line containing two squares separated by one space. A square is a string consisting of a letter (a-h) representing the column and a digit (1-8) representing the row on the chessboard.  
 Output Specification  
 For each test case, print one line saying "To get from xx to yy takes n knight moves.".  
-**Sample Input**
-e2 e4  
-a1 b2  
-b2 c3  
-a1 h8  
-a1 h7  
-h8 a1  
-b1 c3  
-f6 f6  
+**Sample Input**  
+```
+e2 e4
+a1 b2
+b2 c3
+a1 h8
+a1 h7
+h8 a1
+b1 c3
+f6 f6
+```
 **Sample Output**
-To get from e2 to e4 takes 2 knight moves.  
-To get from a1 to b2 takes 4 knight moves.  
-To get from b2 to c3 takes 2 knight moves.  
-To get from a1 to h8 takes 6 knight moves.  
-To get from a1 to h7 takes 5 knight moves.  
-To get from h8 to a1 takes 6 knight moves.  
-To get from b1 to c3 takes 1 knight moves.  
-To get from f6 to f6 takes 0 knight moves.  
+```
+To get from e2 to e4 takes 2 knight moves.
+To get from a1 to b2 takes 4 knight moves.
+To get from b2 to c3 takes 2 knight moves.
+To get from a1 to h8 takes 6 knight moves.
+To get from a1 to h7 takes 5 knight moves.
+To get from h8 to a1 takes 6 knight moves.
+To get from b1 to c3 takes 1 knight moves.
+To get from f6 to f6 takes 0 knight moves.
+```
 
 这题就是普通的BFS，就是一匹马不断的走日字形路，就不多做赘述了，直接上代码。  
 ```c++
