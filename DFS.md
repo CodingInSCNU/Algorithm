@@ -19,36 +19,36 @@ For each test case, output one line containing the maximum number of blockhouses
 
 **Sample input:**
 
-4
-.X..
-....
-XX..
-....
-2
-XX
-.X
-3
-.X.
-X.X
-.X.
-3
-...
-.XX
-.XX
-4
-....
-....
-....
-....
-0
+4  
+.X..  
+....  
+XX..  
+....  
+2  
+XX  
+.X  
+3  
+.X.  
+X.X  
+.X.  
+3  
+...  
+.XX  
+.XX  
+4  
+....  
+....  
+....  
+....  
+0  
 
 **Sample output:**
 
-5
-1
-5
-2
-4
+5  
+1  
+5  
+2  
+4  
 
 ## 填鸭式解法
 一个一个坑填进去，一条路走到黑，没什么特别好说的，直接上代码就明白了。  
