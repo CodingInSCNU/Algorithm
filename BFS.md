@@ -112,8 +112,71 @@ int movingCount(int m, int n, int k) {
 - 时间复杂度：```O(mn)```.  
 - 空间复杂度：```O(mn)```.  
 
-# Knight Moves
-这题就是普通的BFS，就不做题解了，具体代码在本人的 ```xcode``` 里hh，此处附上链接 [ZOJ-1091 Knight Moves](https://zoj.pintia.cn/problem-sets/91827364500/problems/91827364590)  
+# [Knight Moves](https://zoj.pintia.cn/problem-sets/91827364500/problems/91827364590)
+这题就是普通的BFS，就是一匹马不断的走日字形路，就不多做赘述了，直接上代码。  
+```c++
+#include <iostream>
+#include <cstdio>
+#include <queue>
+#include <cstring>
+#include <cstdlib>
+using namespace std;
+
+struct node {
+    int x, y;
+    int step;
+};
+
+// 8 * 8 chessboard
+//a letter (a-h) representing the column and a digit (1-8) representing the row
+int sx, sy, ex, ey, res;
+bool visited[8][8];
+//方向数组
+int dir[8][2] = {
+    {1, 2}, {-1, 2}, {2, 1}, {-2, 1}, {1, -2}, {-1, -2}, {2, -1}, {-2, -1}
+};
+void bfs() {
+    node* start = (node* )malloc(sizeof(node));
+    //initialize origin
+    start->x = sx; start->y = sy; start->step = 0;
+    queue<node*> q;
+    q.push(start);
+    visited[start->x][start->y] = true;
+    while (!q.empty()) {
+        node* temp = q.front();
+        q.pop();
+        if (temp->x == ex && temp->y == ey) {
+            res = temp->step;
+        }
+        for (int i = 0; i < 8; i++) {
+            int plus_x = temp->x + dir[i][0], plus_y = temp->y + dir[i][1];
+            //下一个 step 的坐标要在合法范围内且没有走过
+            if (plus_x >= 0 && plus_x <= 7 && plus_y >= 0 && plus_y <= 7 && !visited[plus_x][plus_y]){
+                node* kids = (node* )malloc(sizeof(node));
+                kids->x = plus_x; kids->y = plus_y; kids->step = temp->step + 1;
+                q.push(kids);
+                visited[plus_x][plus_y] = true;
+            } else continue;
+        }
+    }
+}
+
+int main(int argc, const char * argv[]) {
+    char a[5], b[5];
+    while (scanf("%s%s", a, b) != EOF) {
+        sx = a[1] - '1'; sy = a[0] - 'a';
+        ex = b[1] - '1'; ey = b[0] - 'a';
+        memset(visited, false, sizeof(visited));
+        if (strcmp(a, b) == 0) {
+            printf("To get from %s to %s takes %d knight moves.\n", a, b, 0);
+            continue;
+        }
+        bfs();
+        printf("To get from %s to %s takes %d knight moves.\n", a, b, res);
+    }
+    return 0;
+}
+```
 
 
 
