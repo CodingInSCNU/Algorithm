@@ -328,9 +328,38 @@ int lastRemaining(int n, int m) {
     return ans;
 }
 ```
-
-
-
+# emplace
+```emplace_front, emplace, emplace_back```，这些操作分别对应STL中的 ```push_front, insert, push_back```
+## emplace(iterator, nums)
+```c++
+vector<int> test;
+for (int i = 0; i < 5; i++) {
+    test.push_back(i + 1);
+}
+//test : 1 2 3 4 5
+vector<int>::iterator it = find(test.begin(), test.end(), 3);
+//在找到的迭代器指针前插入数据
+test.emplace(it, 9);
+for (auto v : test) {
+    cout << v << " ";
+}
+cout << endl;
+//输出：1 2 9 3 4 5
+```
+## emplace_back(nums)
+```c++
+vector<int> test;
+for (int i = 0; i < 5; i++) {
+    test.push_back(i + 1);
+}
+test.emplace_back(9);
+for (auto v : test) {
+    cout << v << " ";
+}
+cout << endl;
+//输出：1 2 3 4 5 9
+```
+以上只展示了两个例子（因为 ```vector``` 没有 ```emplace_front``` 函数），具体看数据结构吧，每个用法都有点不同。
 
 
 
