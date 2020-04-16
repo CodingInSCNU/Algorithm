@@ -1,3 +1,7 @@
+```
+graph LR
+A-->B
+```
 # 链表反转
 ```c++
 list *reverse(list *head)
