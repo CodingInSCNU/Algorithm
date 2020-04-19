@@ -46,48 +46,6 @@ a.rend();                               //rend()函数返回指向当前vector�
 a.resize(size, val);                    //改变当前vector的大小为size,且对新创建的元素赋值val
 ```
 ---
-# 合并两个数组
-给定两个大小为 m 和 n 的有序数组 ```nums1``` 和 ```nums2```. 
-
-请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n)). 
-
-你可以假设 ```nums1``` 和 ```nums2``` 不会同时为空。
-
-示例 1:
-```
-nums1 = [1, 3]
-nums2 = [2]
-
-则中位数是 2.0
-```
-示例 2:
-```
-nums1 = [1, 2]
-nums2 = [3, 4]
-
-则中位数是 (2 + 3)/2 = 2.5
-```
-以下算法不符合题目要求，具体解法 [click here](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-shu-b/)
-```c++
-class Solution {
-public:
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        vector<int>a;
-        a.resize(nums1.size() + nums2.size());
-        //合并两个数组（两个数组分别一定要排好序）
-        merge(nums1.begin(),nums1.end(),nums2.begin(),nums2.end(),a.begin());
-        if(a.size()%2 == 0){
-            int mid = a.size()/2;
-            double m = (a[mid-1] + a[mid]) / 2.0;
-            return m;
-        }
-        else{
-            int mid = a.size()/2;
-            return a[mid];
-        }
-    }
-};
-```
 
 
 
