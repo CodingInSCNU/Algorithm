@@ -277,10 +277,50 @@ int dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     return dist;
     }
 ```
+---
+# [二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/)
+给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
 
+示例:
+```
+输入: [1,2,3,null,5,null,4]
+输出: [1, 3, 4]
+解释:
 
+   1            <---
+ /   \
+2     3         <---
+ \     \
+  5     4       <---
+```
 
-
+```c++
+vector<int> rightSideView(TreeNode* root) {
+    unordered_map<int, int> rightmostValueAtDepth;
+    vector<int> ans;
+    int max_depth = -1;
+    queue<TreeNode*> nodeQueue;
+    queue<int> depthQueue;
+    nodeQueue.push(root);
+    depthQueue.push(0);
+    while (!nodeQueue.empty()) {
+        TreeNode* temp = nodeQueue.front();  nodeQueue.pop();
+        int depth = depthQueue.front();  depthQueue.pop();
+        if (temp) {
+            max_depth = fmax(depth, max_depth);
+            rightmostValueAtDepth[depth] = temp->val;
+            nodeQueue.push(temp->left);
+            nodeQueue.push(temp->right);
+            depthQueue.push(depth + 1);
+            depthQueue.push(depth + 1);
+        }
+    }
+    for (int i = 0; i <= max_depth; i++) {
+        ans.push_back(rightmostValueAtDepth[i]);
+    }
+    return ans;
+}
+```
 
 
 
